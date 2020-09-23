@@ -7,20 +7,20 @@ public class TerningKast {
 
     int Terning1 = (int) (Math.random() * (max - min) + min);
 
-    // System.out.println(Terning1);
-
     int Terning2 = (int) (Math.random() * (max - min) + min);
 
-    int sumafterninger = Terning1 + Terning2;
+    int Sumafterninger = Terning1 + Terning2;
 
     public int VaerdiTerning1() {
         return Terning1;
-
     }
 
     public int VaerdiTerning2() {
         return Terning2;
+    }
 
+    public int Vaerdiafsum() {
+        return Sumafterninger;
     }
 /* Gammel metode, ikke i brug
     static void Kast() {
