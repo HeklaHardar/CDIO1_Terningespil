@@ -10,7 +10,12 @@ public class Terningespil {
 
         int Spiller = (int) (Math.random()*(max-min)+min);
 
-        System.out.println(Spiller);
+        if (Spiller == 1) {
+            System.out.println("Spiller 1 starter");
+        } else {
+            System.out.println("Spiller 2 starter");
+        }
+
 
     }
 

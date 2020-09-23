@@ -1,4 +1,4 @@
-import
+//import
 
 public class TerningKast {
 
