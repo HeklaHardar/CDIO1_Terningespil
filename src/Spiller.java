@@ -27,6 +27,10 @@ public class Spiller {
 
         return Player + " Starter";
 
+    }
+    public String playerString(){
+
+        return Player;
 
     }
 
