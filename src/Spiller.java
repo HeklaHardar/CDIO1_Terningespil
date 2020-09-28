@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Spiller {
 
 
@@ -9,6 +7,7 @@ public class Spiller {
     private int max = 3;
     private String Player;
     private int Spiller = (int) (Math.random() * (max - min) + min);
+    private boolean spS;
 
 
     public Spiller(String s) {
@@ -16,6 +15,19 @@ public class Spiller {
         Player = s;
 
     }
+
+    public void Starter(boolean b) {
+
+        spS = b;
+
+    }
+
+    public boolean stst(){
+
+        return spS;
+
+    }
+
 
     public int spillerStarter() {
 

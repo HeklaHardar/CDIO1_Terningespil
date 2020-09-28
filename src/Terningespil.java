@@ -3,6 +3,9 @@ import java.util.Scanner;
 public class Terningespil {
 
     public static void main(String[] args) {
+
+
+        Scanner scan = new Scanner(System.in);
         Raflebæger raflebæger = new Raflebæger();
 
         System.out.println(raflebæger.sum());
@@ -20,9 +23,13 @@ public class Terningespil {
 
         if (s1.spillerStarter() == 1) {
             System.out.println(s1.startString());
+            s1.Starter(true);
         } else {
             System.out.println(s2.startString());
+            s1.Starter(false);
         }
+
+        System.out.println(s1.stst());
 
 
 
