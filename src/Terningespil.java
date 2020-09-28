@@ -34,21 +34,26 @@ public class Terningespil {
         System.out.println(s1.stst());
 
 
-        System.out.print("Er i klar til at starte spillet? ja/nej: ");
-        String klarString = scan.nextLine();
 
-        if (klarString.equals("ja")) {
 
-            klar = true;
 
-        } else if (klarString.equals("nej")){
-            //Noget om genstart hvis du vil spille
-            System.out.println("blahblah");
-        }
-        else {
+        while (!klar) {
 
-            System.out.println("ukendt input");
+            System.out.print("Er i klar til at starte spillet? ja/nej: ");
+            String klarString = scan.nextLine();
 
+            if (klarString.equals("ja")) {
+
+                klar = true;
+
+            } else if (klarString.equals("nej")) {
+                //Noget om genstart hvis du vil spille
+                System.out.println("blahblah");
+            } else {
+
+                System.out.println("ukendt input");
+
+            }
         }
 /*
         //måske lav til sin egen class
