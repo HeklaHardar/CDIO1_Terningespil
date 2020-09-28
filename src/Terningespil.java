@@ -4,7 +4,7 @@ public class Terningespil {
 
     public static void main(String[] args) {
 
-
+        boolean klar = false;
         Scanner scan = new Scanner(System.in);
         Raflebæger raflebæger = new Raflebæger();
 
@@ -31,38 +31,63 @@ public class Terningespil {
 
         System.out.println(s1.stst());
 
+        String klarString = scan.nextLine();
 
+        if (klarString.equals("ja")) {
 
+            klar = true;
+
+        } else {
+            //Noget om genstart hvis du vil spille
+            System.out.println("blahblah");
+
+        }
 /*
-//Mangler variable for at gemme point
+        while (klar) {
 
-        if (HentKommando.VaerdiTerning1() == HentKommando.VaerdiTerning2() && HentKommando.VaerdiTerning1() != 1){
+            //Find andet navn end stst
+            while (s1.stst()) {
+                //Mangler variable for at gemme point
+                //mangler && (point variabel) >=40
+                if (raflebæger.terning1 == raflebæger.terning2 && raflebæger.sum() != 1) {
 
-            System.out.println(s1.playerString() + " vinder!");
-            //break;
+                    System.out.println(s1.playerString() + " vinder!");
+                    //Boolean vinder = true
+                    //break;
 
-        }
-        else if (HentKommando.VaerdiTerning1() == HentKommando.VaerdiTerning2()){
+                } else if (raflebæger.terning1 == raflebæger.terning2) {
 
-            System.out.println("Ekstra tur til " + s1.spillerStarter());
-            if(HentKommando.Vaerdiafsum()==2){
+                    System.out.println("Ekstra tur til " + s1.spillerStarter());
 
-                //Dobbelt etter = mister alle sine point
-                System.out.println(s1.playerString() + " mister sine point.");
+
+                    if (raflebæger.sum() == 2) {
+
+                        //Dobbelt etter = mister alle sine point
+                        System.out.println(s1.playerString() + " mister sine point.");
+                        //Mangler (point variabel) = 0
+                    }
+                    if (raflebæger.sum() == 12) {
+
+
+                        //Dobbelt sekser igen og man vinder spillet
+                        //If statement hvis man har slået 2 seksere i træk så vinder man
+
+                        //Boolean til at være true for at man har slået to seksere, som så tjekkes
+                        //i if statement
+
+                    }
+
+                }
+            }
+            //skift navn til andet end stst
+            while(s1.stst()==false){
+
+
 
             }
-            if(HentKommando.Vaerdiafsum()==12){
-
-
-                //Dobbelt sekser igen og man vinder spillet
-                //
-
-            }
-
-        }
-        else if (){
 
         }
 */
+
     }
 }
