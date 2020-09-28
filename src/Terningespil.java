@@ -3,14 +3,14 @@ import java.util.Scanner;
 public class Terningespil {
 
     public static void main(String[] args) {
+        Raflebæger raflebæger = new Raflebæger();
 
-        Scanner scan = new Scanner(System.in);
+        System.out.println(raflebæger.sum());
 
-        TerningKast HentKommando = new TerningKast();
+        System.out.println(raflebæger.roll().toString());
 
-        System.out.println(HentKommando.VaerdiTerning1() + " " + HentKommando.VaerdiTerning2());
+        System.out.println(raflebæger.sum());
 
-        System.out.println(HentKommando.Vaerdiafsum());
 
         System.out.print("Indtast navn for spiller 1: ");
         Spiller s1 = new Spiller(scan.nextLine());

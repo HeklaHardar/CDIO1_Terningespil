@@ -1,27 +1,25 @@
 import java.lang.Math;
 
-public class TerningKast {
-    int max = 7;
+public class Terning {
+    int max;
     int min = 1;
 
+    int Vaerdi; //parametre
 
-    int Terning1 = (int) (Math.random() * (max - min) + min);
-
-    int Terning2 = (int) (Math.random() * (max - min) + min);
-
-    int Sumafterninger = Terning1 + Terning2;
-
-    public int VaerdiTerning1() {
-        return Terning1;
+    public Terning(int maximum) { // Konstruktør
+        max = maximum + 1;
+        roll();
     }
 
-    public int VaerdiTerning2() {
-        return Terning2;
+    public int getVaerdi() { //metode
+        return Vaerdi;
     }
 
-    public int Vaerdiafsum() {
-        return Sumafterninger;
+    public int roll() {
+        Vaerdi = (int) (Math.random() * (max - min) + min);
+        return Vaerdi;
     }
+
 /* Gammel metode, ikke i brug
     static void Kast() {
 
