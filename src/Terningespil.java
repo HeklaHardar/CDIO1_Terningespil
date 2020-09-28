@@ -5,13 +5,14 @@ public class Terningespil {
     public static void main(String[] args) {
 
         boolean klar = false;
+
+
         Scanner scan = new Scanner(System.in);
+
+
         Raflebæger raflebæger = new Raflebæger();
-
         System.out.println(raflebæger.sum());
-
         System.out.println(raflebæger.roll().toString());
-
         System.out.println(raflebæger.sum());
 
 
@@ -29,27 +30,35 @@ public class Terningespil {
             s1.Starter(false);
         }
 
+        //test
         System.out.println(s1.stst());
 
+
+        System.out.print("Er i klar til at starte spillet? ja/nej: ");
         String klarString = scan.nextLine();
 
         if (klarString.equals("ja")) {
 
             klar = true;
 
-        } else {
+        } else if (klarString.equals("nej")){
             //Noget om genstart hvis du vil spille
             System.out.println("blahblah");
+        }
+        else {
+
+            System.out.println("ukendt input");
 
         }
 /*
+        //måske lav til sin egen class
         while (klar) {
 
             //Find andet navn end stst
             while (s1.stst()) {
                 //Mangler variable for at gemme point
                 //mangler && (point variabel) >=40
-                if (raflebæger.terning1 == raflebæger.terning2 && raflebæger.sum() != 1) {
+                if (raflebæger.terning1 == raflebæger.terning2 && raflebæger.sum() != 2) {
 
                     System.out.println(s1.playerString() + " vinder!");
                     //Boolean vinder = true
