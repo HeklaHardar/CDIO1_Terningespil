@@ -8,11 +8,13 @@ public class Spiller {
     private String Player;
     private int Spiller = (int) (Math.random() * (max - min) + min);
     private boolean spS;
+    private int point;
 
 
     public Spiller(String s) {
 
         Player = s;
+        point = 0;
 
     }
 
@@ -22,7 +24,7 @@ public class Spiller {
 
     }
 
-    public boolean stst(){
+    public boolean tur() {
 
         return spS;
 
@@ -40,37 +42,26 @@ public class Spiller {
         return Player + " Starter";
 
     }
-    public String playerString(){
+
+    public String playerString() {
 
         return Player;
 
     }
 
-/*
-    public static void SpillerNavn() {
+    public void updateScore(int terning) {
 
-        int min = 1;
-        int max = 3;
-
-        Scanner Navn = new Scanner(System.in);
-        System.out.print("Indtast navn for spiller 1: ");
-        String Spiller1Navn = Navn.nextLine();
-        System.out.print("Indtast navn for spiller 2: ");
-        String Spiller2Navn = Navn.nextLine();
-
-        Navn.close();
-
-
-        int Spiller = (int) (Math.random() * (max - min) + min);
-
-        if (Spiller == 1) {
-            System.out.println(Spiller1Navn + " starter");
-        } else {
-            System.out.println(Spiller2Navn + " starter");
+        point += terning;
+        if (terning == 0) {
+            point = 0;
         }
+
+    }
+
+    public int score() {
+
+        return point;
 
 
     }
-*/
-
 }

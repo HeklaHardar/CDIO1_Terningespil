@@ -1,6 +1,8 @@
+import java.awt.*;
 import java.util.Scanner;
 
 public class Terningespil {
+
 
     public static void main(String[] args) {
 
@@ -29,9 +31,26 @@ public class Terningespil {
             System.out.println(s2.startString());
             s1.Starter(false);
         }
+/*
+        while (true) {
 
-        //test
-        System.out.println(s1.stst());
+
+            System.out.println(raflebæger.roll().toString());
+            System.out.println(raflebæger.sum());
+            s1.updateScore(raflebæger.sum());
+
+
+            if (raflebæger.sum() == 2) {
+                s1.updateScore(0);
+                System.out.println(s1.score());
+            } else {
+                System.out.println(s1.score());
+            }
+
+            String vent = scan.nextLine();
+
+            System.out.println(s1.score());
+        }
 
 
 
@@ -45,6 +64,7 @@ public class Terningespil {
             if (klarString.equals("ja")) {
 
                 klar = true;
+                break;
 
             } else if (klarString.equals("nej")) {
                 //Noget om genstart hvis du vil spille
@@ -55,15 +75,15 @@ public class Terningespil {
 
             }
         }
-/*
+
         //måske lav til sin egen class
-        while (klar) {
+        while (!winner1) {
 
             //Find andet navn end stst
-            while (s1.stst()) {
+            while (s1.tur()) {
                 //Mangler variable for at gemme point
                 //mangler && (point variabel) >=40
-                if (raflebæger.terning1 == raflebæger.terning2 && raflebæger.sum() != 2) {
+                if (raflebæger.terning1 == raflebæger.terning2 && raflebæger.sum() != 2 && s1point.score() >= 40) {
 
                     System.out.println(s1.playerString() + " vinder!");
                     //Boolean vinder = true
@@ -94,14 +114,14 @@ public class Terningespil {
                 }
             }
             //skift navn til andet end stst
-            while(s1.stst()==false){
+            while(s1.tur()==false){
 
 
 
             }
 
         }
-*/
 
+*/
+        }
     }
-}
