@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class Terningespil {
 
-
     public static void main(String[] args) {
 
         String tur;
@@ -12,9 +11,7 @@ public class Terningespil {
 
         Scanner scan = new Scanner(System.in);
 
-        PointSystem pointsystem = new PointSystem();
-        pointsystem.Spiller();
-        pointsystem.play();
+
 
 
 
@@ -56,45 +53,57 @@ public class Terningespil {
 
                     tur = "player2";
                 }
-        while(true){
+                boolean vinder = false;
+        boolean ekstratur = false;
+        int score1 = 0;
+        int score2 = 0;
+        PointSystem pointsystem = new PointSystem();
+        while(vinder == false){
+            int kast1;
+            int kast2;
+            int sumafkast;
+
                 while (tur.equals("player1")) {
+                    raflebaeger.roll();
+                    kast1  = raflebaeger.terning1.getVaerdi();
+                    kast2 = raflebaeger.terning2.getVaerdi();
+                    sumafkast = raflebaeger.sum();
                     System.out.println("");
                     System.out.println("Det er " + s1.playerString()+"'s tur. Tryk enter for at tage dit kast");
-                    String vent = scan.nextLine();
-                    System.out.println("slagene er: "+raflebaeger.roll().toString());
-                    System.out.println("summen af raflebægerne er: "+raflebaeger.sum());
-                    s1.updateScore(raflebaeger.sum());
-
-
-
-                    if (raflebaeger.sum() == 2) {
-                        s1.updateScore(0);
-                    }
+                    System.out.println("slagene er: "+ kast1+"," +kast2);
+                    System.out.println("summen af raflebægerne er: "+sumafkast);
+                    pointsystem.play(kast1,kast2,sumafkast, score1);
+                    ekstratur = pointsystem.CheckExtraTurn();
+                    vinder = pointsystem.CheckVinder();
+                    score1 = pointsystem.GetScore();
                     System.out.println("");
-                    System.out.println(s1.playerString()+" har " +s1.score()+" Points");
+                    System.out.println(s1.playerString()+" har " +score1+" Points");
+                    if (ekstratur == true) {
+                        break;
+                    }
                     tur = "player2";
 
 
-                }
 
                 while (tur.equals("player2")) {
+                    raflebaeger.roll();
+                    kast1  = raflebaeger.terning1.getVaerdi();
+                    kast2 = raflebaeger.terning2.getVaerdi();
+                    sumafkast = raflebaeger.sum();
                     System.out.println("");
                     System.out.println("Det er " + s2.playerString()+"'s tur. Tryk enter for at tage dit kast");
-                    String vent = scan.nextLine();
-
-                    System.out.println("Slagene er: "+raflebaeger.roll().toString());
-                    System.out.println("Summen er: "+raflebaeger.sum());
-                    s2.updateScore(raflebaeger.sum());
-
-
-
-                    if (raflebaeger.sum() == 2) {
-                        s2.updateScore(0);
-                    }
+                    System.out.println("slagene er: "+ kast1+"," +kast2);
+                    System.out.println("summen af raflebægerne er: "+sumafkast);
+                    pointsystem.play(kast1,kast2,sumafkast, score2);
+                    ekstratur = pointsystem.CheckExtraTurn();
+                    vinder = pointsystem.CheckVinder();
+                    score2 = pointsystem.GetScore();
                     System.out.println("");
-                    System.out.println(s2.playerString()+" har " +s2.score()+" Points");
+                    System.out.println(s2.playerString()+" har " +score2+" Points");
+                    if (ekstratur == true) {
+                        break;
+                    }
                     tur = "player1";
-
 
                 }
 
@@ -102,6 +111,6 @@ public class Terningespil {
 
             }
         }
-
+    }
         }
 

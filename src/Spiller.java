@@ -51,7 +51,7 @@ public class Spiller {
 
     }
 
-    public int score() {
+    public int getscore() {
 
         return point;
 
