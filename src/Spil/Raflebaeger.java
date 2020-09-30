@@ -5,10 +5,11 @@ public class Raflebaeger {
     Terning terning1 = new Terning(6);
     Terning terning2 = new Terning(6);
 
-    public int sum(){
+    public int sum() {
         return terning1.getVaerdi() + terning2.getVaerdi();
     }
-    public Raflebaeger roll(){
+
+    public Raflebaeger roll() {
         terning1.roll();
         terning2.roll();
         return this;
@@ -17,7 +18,17 @@ public class Raflebaeger {
     @Override
     public String toString() {
         return
-                 terning1.getVaerdi() +
-                ", " + terning2.getVaerdi();
+                terning1.getVaerdi() +
+                        ", " + terning2.getVaerdi();
+    }
+
+    public int terning1Vaerdi(){
+
+        return terning1.getVaerdi();
+
+    }
+    public int terning2Vaerdi() {
+
+        return terning2.getVaerdi();
     }
 }
