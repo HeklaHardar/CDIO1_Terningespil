@@ -3,13 +3,22 @@ import java.util.Scanner;
 
 public class Terningespil {
 
+    private String spiller1;
+
+
+
 
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        PointSystem pointsystem = new PointSystem();
+        pointsystem.Spiller();
+        pointsystem.play();
 
         boolean klar = false;
 
 
-        Scanner scan = new Scanner(System.in);
+
 
 
         Raflebæger raflebæger = new Raflebæger();
@@ -20,10 +29,11 @@ public class Terningespil {
          */
 
 
-        System.out.print("Indtast navn for spiller 1: ");
+       /* System.out.print("Indtast navn for spiller 1: ");
         Spiller s1 = new Spiller(scan.nextLine());
         System.out.print("Indtast navn for spiller 2: ");
         Spiller s2 = new Spiller(scan.nextLine());
+
         //while game is still going
         while(true){
 
@@ -34,6 +44,7 @@ public class Terningespil {
             System.out.println(s2.startString());
             s1.Starter(false);
         }
+
 
         while (!klar) {
 
@@ -69,7 +80,7 @@ public class Terningespil {
             } else {
                 System.out.println(s1.score());
             }
-
+            System.out.println(s1.playerString() + " har " + s1.score() + " point.");
             String vent = scan.nextLine();
 
             System.out.println(s1.score());
@@ -77,5 +88,6 @@ public class Terningespil {
         }
 
 
-        }
+        }*/
     }
+}
