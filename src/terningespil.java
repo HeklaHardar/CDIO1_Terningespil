@@ -6,29 +6,31 @@ public class terningespil {
 
     public static void main(String[] args) {
 
-        int n = 0;
-
         Scanner input = new Scanner(System.in);
-        System.out.println("Er der forbindelse?");
-        System.out.println("Alle mine penge er blå");
         int a = input.nextInt();
-        System.out.println(a);
-        if (a => n) {
-            n++;
-            System.out.println("█");
-        }
+
+        int n = 1;
+        while ( n <= a)
+        {
+            n = n + 1;
+            System.out.print("█");
 
         }
+            System.out.println(" ");
+        a = input.nextInt();
+        n = 1;
+
+        while ( n <= a)
+        {
+            n = n + 1;
+            System.out.print("█");
+
+        }
+        System.out.println(" ");
+
+        }
+
     }
-
-
-
-
-
-
-
-
-
 
 
 
