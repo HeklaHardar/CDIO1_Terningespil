@@ -22,23 +22,26 @@ public class PointSystem {
         Spiller s2 = new Spiller(scan.nextLine());
 
         if (s1.spillerStarter() == 1) {
-            System.out.println(s1.startString());
+            System.out.println("\n" + s1.startString());
         } else {
-            System.out.println(s2.startString());
+            System.out.println("\n" + s2.startString());
             tur = false;
         }
+
+
 
         while (!Vinder) {
             while (tur) {
 
-                System.out.println("\nSpiller: " + s1.playerString() + "'s tur.");
+                System.out.println("\nDet er " + s1.playerString() + "'s tur.");
                 if (s1.score() > 0) {
                     System.out.println(s1.playerString() + " har: " + s1.score() + " point");
                 }
-                System.out.println("Tryk enter for at slå med terningen");
+                System.out.println("Tryk enter for at tage dit kast");
                 String vent = scan.nextLine();
                 raflebaeger.roll();
-                System.out.println(raflebaeger.toString());
+                System.out.println("Slagene er: " + raflebaeger.terning1.getVaerdi() + " og " + raflebaeger.terning2.getVaerdi());
+                System.out.println("Summen af raflebægeret er: " + raflebaeger.sum());
 
                 if (Sekser1 > 0) {
                     Sekser1 -= 1;
@@ -82,7 +85,7 @@ public class PointSystem {
 
                 if (!tur) {
 
-                    System.out.println("Skifter tur til: " + s2.playerString());
+                    System.out.println("\nSkifter tur til: " + s2.playerString());
 
                 }
             }
@@ -91,17 +94,19 @@ public class PointSystem {
                 break;
             }
             while (!tur) {
-                System.out.println("\nSpiller: " + s2.playerString() + "'s tur.");
+
+                System.out.println("\nDet er " + s2.playerString() + "'s tur.");
 
                 if (s2.score() > 0) {
 
                     System.out.println(s2.playerString() + " har: " + s2.score() + " point");
 
                 }
-                System.out.println("Tryk enter for at slå med terningen");
+                System.out.println("Tryk enter for at tage dit kast");
                 String vent = scan.nextLine();
                 raflebaeger.roll();
-                System.out.println(raflebaeger.toString());
+                System.out.println("Slagene er: " + raflebaeger.terning1.getVaerdi() + " og " + raflebaeger.terning2.getVaerdi());
+                System.out.println("Summen af raflebægeret er: " + raflebaeger.sum());
 
                 if (Sekser2 > 0) {
 
@@ -147,7 +152,7 @@ public class PointSystem {
 
                 if (tur) {
 
-                    System.out.println("Skifter tur til: " + s1.playerString());
+                    System.out.println("\nSkifter tur til: " + s1.playerString());
 
                 }
             }
