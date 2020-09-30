@@ -16,7 +16,6 @@ public class Terningespil {
         pointsystem.Spiller();
         pointsystem.play();
 
-        boolean klar = false;
 
 
 
