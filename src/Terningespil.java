@@ -22,11 +22,6 @@ public class Terningespil {
 
 
         Raflebaeger raflebaeger = new Raflebaeger();
-        /*System.out.println(raflebæger.sum());
-        System.out.println(raflebæger.roll().toString());
-        System.out.println(raflebæger.sum());
-
-         */
 
 
         System.out.print("Indtast navn for spiller 1: ");

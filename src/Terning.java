@@ -6,7 +6,7 @@ public class Terning {
 
     int Vaerdi; //parametre
 
-    public Terning(int maximum) { // Konstruktør
+    public Terning(int maximum) { // Konstruktor
         max = maximum + 1;
         roll();
     }
