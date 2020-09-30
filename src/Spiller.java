@@ -18,17 +18,6 @@ public class Spiller {
 
     }
 
-    public void Starter(boolean b) {
-
-        spS = b;
-
-    }
-
-    public boolean tur() {
-
-        return spS;
-
-    }
 
 
     public int spillerStarter() {
@@ -49,6 +38,10 @@ public class Spiller {
 
     }
 
+    public String pointString(String point){
+        return Player + "har" + point + "points";
+    }
+
     public void updateScore(int terning) {
 
         point += terning;
@@ -64,4 +57,5 @@ public class Spiller {
 
 
     }
+
 }

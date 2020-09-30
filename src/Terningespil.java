@@ -1,14 +1,15 @@
-import java.awt.*;
+
 import java.util.Scanner;
 
 public class Terningespil {
 
-    private String spiller1;
-
-
-
 
     public static void main(String[] args) {
+
+        String tur;
+        boolean klar = false;
+
+
         Scanner scan = new Scanner(System.in);
 
         PointSystem pointsystem = new PointSystem();
@@ -21,7 +22,7 @@ public class Terningespil {
 
 
 
-        Raflebæger raflebæger = new Raflebæger();
+        Raflebaeger raflebaeger = new Raflebaeger();
         /*System.out.println(raflebæger.sum());
         System.out.println(raflebæger.roll().toString());
         System.out.println(raflebæger.sum());
@@ -29,29 +30,15 @@ public class Terningespil {
          */
 
 
-       /* System.out.print("Indtast navn for spiller 1: ");
+        System.out.print("Indtast navn for spiller 1: ");
         Spiller s1 = new Spiller(scan.nextLine());
         System.out.print("Indtast navn for spiller 2: ");
         Spiller s2 = new Spiller(scan.nextLine());
-
-        //while game is still going
-        while(true){
-
-        if (s1.spillerStarter() == 1) {
-            System.out.println(s1.startString());
-            s1.Starter(true);
-        } else {
-            System.out.println(s2.startString());
-            s1.Starter(false);
-        }
-
-
+        //checker om spilleren er klar
         while (!klar) {
 
             System.out.print("Er i klar til at starte spillet? ja/nej: ");
-            String klarString = scan.nextLine();
-            klarString.toLowerCase();
-
+            String klarString = scan.nextLine().toLowerCase();
             if (klarString.equals("ja")) {
                 klar = true;
                 break;
@@ -66,28 +53,61 @@ public class Terningespil {
             }
         }
 
-        while (true) {
+        //while game is still going
+
+            if (s1.spillerStarter() == 1) {
+                tur = "player1";
+                }
+                else{
+
+                    tur = "player2";
+                }
+        while(true){
+                while (tur.equals("player1")) {
+                    System.out.println("");
+                    System.out.println("Det er " + s1.playerString()+"'s tur. Tryk enter for at tage dit kast");
+                    String vent = scan.nextLine();
+                    System.out.println("slagene er: "+raflebaeger.roll().toString());
+                    System.out.println("summen af raflebægerne er: "+raflebaeger.sum());
+                    s1.updateScore(raflebaeger.sum());
 
 
-            System.out.println(raflebæger.roll().toString());
-            System.out.println(raflebæger.sum());
-            s1.updateScore(raflebæger.sum());
+
+                    if (raflebaeger.sum() == 2) {
+                        s1.updateScore(0);
+                    }
+                    System.out.println("");
+                    System.out.println(s1.playerString()+" har " +s1.score()+" Points");
+                    tur = "player2";
 
 
-            if (raflebæger.sum() == 2) {
-                s1.updateScore(0);
-                System.out.println(s1.score());
-            } else {
-                System.out.println(s1.score());
+                }
+
+                while (tur.equals("player2")) {
+                    System.out.println("");
+                    System.out.println("Det er " + s2.playerString()+"'s tur. Tryk enter for at tage dit kast");
+                    String vent = scan.nextLine();
+
+                    System.out.println("Slagene er: "+raflebaeger.roll().toString());
+                    System.out.println("Summen er: "+raflebaeger.sum());
+                    s2.updateScore(raflebaeger.sum());
+
+
+
+                    if (raflebaeger.sum() == 2) {
+                        s2.updateScore(0);
+                    }
+                    System.out.println("");
+                    System.out.println(s2.playerString()+" har " +s2.score()+" Points");
+                    tur = "player1";
+
+
+                }
+
+
+
             }
-            System.out.println(s1.playerString() + " har " + s1.score() + " point.");
-            String vent = scan.nextLine();
-
-            System.out.println(s1.score());
-        }
         }
 
+        }
 
-        }*/
-    }
-}
