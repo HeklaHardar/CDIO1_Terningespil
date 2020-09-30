@@ -24,7 +24,8 @@ public class Terningespil {
         Spiller s1 = new Spiller(scan.nextLine());
         System.out.print("Indtast navn for spiller 2: ");
         Spiller s2 = new Spiller(scan.nextLine());
-        System.out.println(s1.spillerStarter());
+        //while game is still going
+        while(true){
 
         if (s1.spillerStarter() == 1) {
             System.out.println(s1.startString());
@@ -33,30 +34,6 @@ public class Terningespil {
             System.out.println(s2.startString());
             s1.Starter(false);
         }
-
-        while (true) {
-
-
-            System.out.println(raflebæger.roll().toString());
-            System.out.println(raflebæger.sum());
-            s1.updateScore(raflebæger.sum());
-
-
-            if (raflebæger.sum() == 2) {
-                s1.updateScore(0);
-                System.out.println(s1.score());
-            } else {
-                System.out.println(s1.score());
-            }
-
-            String vent = scan.nextLine();
-
-            System.out.println(s1.score());
-        }
-
-
-
-
 
         while (!klar) {
 
@@ -78,50 +55,25 @@ public class Terningespil {
             }
         }
 
-        //måske lav til sin egen class
-        while (!winner1) {
-
-            //Find andet navn end stst
-            while (s1.tur()) {
-                //Mangler variable for at gemme point
-                //mangler && (point variabel) >=40
-                if (raflebæger.terning1 == raflebæger.terning2 && raflebæger.sum() != 2 && s1point.score() >= 40) {
-
-                    System.out.println(s1.playerString() + " vinder!");
-                    //Boolean vinder = true
-                    //break;
-
-                } else if (raflebæger.terning1 == raflebæger.terning2) {
-
-                    System.out.println("Ekstra tur til " + s1.spillerStarter());
+        while (true) {
 
 
-                    if (raflebæger.sum() == 2) {
-
-                        //Dobbelt etter = mister alle sine point
-                        System.out.println(s1.playerString() + " mister sine point.");
-                        //Mangler (point variabel) = 0
-                    }
-                    if (raflebæger.sum() == 12) {
+            System.out.println(raflebæger.roll().toString());
+            System.out.println(raflebæger.sum());
+            s1.updateScore(raflebæger.sum());
 
 
-                        //Dobbelt sekser igen og man vinder spillet
-                        //If statement hvis man har slået 2 seksere i træk så vinder man
-
-                        //Boolean til at være true for at man har slået to seksere, som så tjekkes
-                        //i if statement
-
-                    }
-
-                }
-            }
-            //skift navn til andet end stst
-            while(s1.tur()==false){
-
-
-
+            if (raflebæger.sum() == 2) {
+                s1.updateScore(0);
+                System.out.println(s1.score());
+            } else {
+                System.out.println(s1.score());
             }
 
+            String vent = scan.nextLine();
+
+            System.out.println(s1.score());
+        }
         }
 
 
