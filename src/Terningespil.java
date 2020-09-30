@@ -25,11 +25,13 @@ public class Terningespil {
         Spiller s1 = new Spiller(scan.nextLine());
         System.out.print("Indtast navn for spiller 2: ");
         Spiller s2 = new Spiller(scan.nextLine());
-        //checker om spilleren er klar
+
+         //checker om spilleren er klar
         while (!klar) {
 
             System.out.print("Er i klar til at starte spillet? ja/nej: ");
-            String klarString = scan.nextLine().toLowerCase();
+            String klarString = scan.nextLine();
+            String klarStringLower = klarString.toLowerCase();
             if (klarString.equals("ja")) {
                 klar = true;
                 break;
@@ -43,8 +45,9 @@ public class Terningespil {
 
             }
         }
+        System.out.println("Spillet starter");
 
-        //while game is still going
+
 
             if (s1.spillerStarter() == 1) {
                 tur = "player1";
@@ -53,11 +56,13 @@ public class Terningespil {
 
                     tur = "player2";
                 }
+
                 boolean vinder = false;
-        boolean ekstratur = false;
-        int score1 = 0;
-        int score2 = 0;
-        PointSystem pointsystem = new PointSystem();
+                boolean Ekstratur;
+                int score1 = 0;
+                int score2 = 0;
+                PointSystem pointsystem = new PointSystem();
+
         while(vinder == false){
             int kast1;
             int kast2;
@@ -73,15 +78,23 @@ public class Terningespil {
                     System.out.println("slagene er: "+ kast1+"," +kast2);
                     System.out.println("summen af raflebægerne er: "+sumafkast);
                     pointsystem.play(kast1,kast2,sumafkast, score1);
-                    ekstratur = pointsystem.CheckExtraTurn();
                     vinder = pointsystem.CheckVinder();
                     score1 = pointsystem.GetScore();
+                    Ekstratur = pointsystem.CheckExtraTurn();
                     System.out.println("");
                     System.out.println(s1.playerString()+" har " +score1+" Points");
-                    if (ekstratur == true) {
+                    if (vinder){
+                        System.out.println(s2.playerString()+" Har Vundet!!! ");
                         break;
+
                     }
-                    tur = "player2";
+                    if (Ekstratur) {
+                        System.out.println(s1.playerString()+" har fået en ekstra tur");
+                        tur = "player1";
+                    }
+                    else{
+                        tur = "player2";
+                    }
 
 
 
@@ -95,15 +108,23 @@ public class Terningespil {
                     System.out.println("slagene er: "+ kast1+"," +kast2);
                     System.out.println("summen af raflebægerne er: "+sumafkast);
                     pointsystem.play(kast1,kast2,sumafkast, score2);
-                    ekstratur = pointsystem.CheckExtraTurn();
                     vinder = pointsystem.CheckVinder();
                     score2 = pointsystem.GetScore();
+                    Ekstratur = pointsystem.CheckExtraTurn();
                     System.out.println("");
                     System.out.println(s2.playerString()+" har " +score2+" Points");
-                    if (ekstratur == true) {
+                    if (vinder){
+                        System.out.println(s2.playerString()+" Har Vundet!!! ");
                         break;
+
                     }
-                    tur = "player1";
+                    if (Ekstratur) {
+                        System.out.println(s2.playerString()+" har fået en ekstra tur");
+                        tur = "player2";
+                    }
+                    else {
+                        tur = "player1";
+                    }
 
                 }
 

@@ -29,17 +29,20 @@ public class PointSystem {
 
             vinder = true;
 
-        } else if (terning1 == terning2) {
+        } if (sum == 2) {
+            newscore = 0;
+            Ekstratur = true;
+
+        }
+        else if (terning1 == terning2) {
+
+
 
             Ekstratur = true;
             newscore = sum + score;
 
 
-            if (sum == 2) {
-                newscore = 0;
-                Ekstratur = true;
 
-            }
 
 
             if (sum == 12) {
@@ -61,7 +64,11 @@ public class PointSystem {
                 //i if statement
 
             }
+
         }
-        newscore = score +sum;
+        else{
+            newscore = score +sum;
+            Ekstratur = false;
+        }
     }
 }
