@@ -3,10 +3,10 @@ package Spil;
 import java.lang.Math;
 
 public class Terning {
-    int max;
-    int min = 1;
+    private int max;
+    private int min = 1;
 
-    int Vaerdi; //parametre
+    private int Vaerdi; //parametre
 
     public Terning(int maximum) { // Konstruktor
         max = maximum + 1;
