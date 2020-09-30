@@ -16,7 +16,7 @@ public class terningespil {
         int n = 0;
         int combo = 0;
 
-        while (n <= 10000) {
+        while (n <= 1000) {
             terning1 = (int) (Math.random() * (7 - 1) + 1);
             terning2 = (int) (Math.random() * (7 - 1) + 1);
             sum = terning1 + terning2;
@@ -25,8 +25,6 @@ public class terningespil {
             System.out.println("Sum er: " + sum);
             System.out.println("-----------------------------");
 
-
-           // if (sum == 2 || sum == 4 || sum == 6 || sum == 8 || sum == 10 || sum == 12){
             if (terning1 == terning2){
                 combo++;
                 System.out.println("2x comboer: " + combo);
