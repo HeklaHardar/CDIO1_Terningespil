@@ -6,9 +6,11 @@ public class PointSystem {
     private String spiller;
     Scanner scan = new Scanner(System.in);
     Raflebaeger raflebaeger = new Raflebaeger();
-    private int sidsteHaand;
+   // private int sidsteHaand;
     private boolean Vinder = false;
     private boolean tur = true;
+    private int Sekser1;
+    private int Sekser2;
 
     public PointSystem() {
 
@@ -31,16 +33,29 @@ public class PointSystem {
             tur = false;
         }
 
-        while (Vinder == false) {
-            while (tur == true) {
-                //String vent = scan.nextLine();
-                System.out.println("Spil.Spiller: " + s1.playerString());
+        while (!Vinder) {
+            while (tur) {
+
+
+
+                System.out.println("\nSpiller: " + s1.playerString() + "'s tur.");
+                if(s1.score()>0){
+
+                    System.out.println(s1.playerString() + " har: " + s1.score() + " point");
+
+                }
+                System.out.println("Tryk enter for at slå med terningen");
+
+                String vent = scan.nextLine();
                 raflebaeger.roll();
                 System.out.println(raflebaeger.toString());
-                //System.out.println(raflebaeger.sum());
-                //Mangler variable for at gemme point
-                //mangler && (point variabel) >=40
-                // System.out.println(raflebaeger.terning1.getVaerdi());
+
+                if(Sekser1 > 0){
+
+                    Sekser1 -= 1;
+
+                }
+
                 if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi() && raflebaeger.sum() != 2 && s1.score() >= 40) {
 
                     System.out.println(s1.playerString() + " vinder med " + s1.score() + " point!");
@@ -50,57 +65,72 @@ public class PointSystem {
 
                 } else if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi()) {
 
-                    System.out.println("Ekstra tur til " + s1.playerString());
+
+                    s1.updateScore(raflebaeger.sum());
 
 
                     if (raflebaeger.sum() == 2) {
 
-                        //Dobbelt etter = mister alle sine point
                         s1.updateScore(0);
                         System.out.println(s1.playerString() + " mister sine point.");
-                        //Mangler (point variabel) = 0
+                        break;
+
                     }
 
 
                     if (raflebaeger.sum() == 12) {
 
 
-                        //Dobbelt sekser igen og man vinder spillet
-                        //If statement hvis man har slået 2 seksere i traek så vinder man
-                        if (raflebaeger.sum() == sidsteHaand) {
+                        if (Sekser1 > 0) {
 
-                            System.out.println("Du vinder med " + s1.score() + " point");
+                            System.out.println(s1.playerString() + " vinder med " + s1.score() + " point");
                             Vinder = true;
                             break;
                         }
-                        sidsteHaand = raflebaeger.sum();
+                        //sidsteHaand = raflebaeger.sum();
+                        Sekser1 = 3;
 
-                        //Boolean til at vaere true for at man har slået to seksere, som så tjekkes
-                        //i if statement
 
                     }
+                    System.out.println("Ekstra tur til " + s1.playerString());
+                    break;
                 } else {
-                    System.out.println("Skifter tur til: " + s2.playerString());
+
                     tur = false;
                 }
                 s1.updateScore(raflebaeger.sum());
-                System.out.println(s1.playerString() + " har: " + s1.score() + " point");
+                System.out.println(s1.playerString() + " har nu: " + s1.score() + " point");
+
+                if (!tur){
+
+                    System.out.println("Skifter tur til: " + s2.playerString());
+
+                }
             }
-            if (Vinder == true) {
+            if (Vinder) {
 
                 break;
             }
-            while (tur == false) {
-                System.out.println("Spil.Spiller: " + s2.playerString() + "'s tur.");
+            while (!tur) {
+                System.out.println("\nSpiller: " + s2.playerString() + "'s tur.");
 
-                System.out.println();
+                if(s2.score()>0){
+
+                    System.out.println(s2.playerString() + " har: " + s2.score() + " point");
+
+                }
+
+                System.out.println("Tryk enter for at slå med terningen");
+                String vent = scan.nextLine();
                 raflebaeger.roll();
                 System.out.println(raflebaeger.toString());
-                //System.out.println(raflebaeger.sum());
 
-                //Mangler variable for at gemme point
-                //mangler && (point variabel) >=40
-                // System.out.println(raflebaeger.terning1.getVaerdi());
+                if(Sekser2 > 0){
+
+                    Sekser2 -= 1;
+
+                }
+
                 if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi() && raflebaeger.sum() != 2 && s2.score() >= 40) {
 
                     System.out.println(s2.playerString() + " vinder med " + s2.score() + " point!");
@@ -115,40 +145,44 @@ public class PointSystem {
 
                     if (raflebaeger.sum() == 2) {
 
-                        //Dobbelt etter = mister alle sine point
+
                         s2.updateScore(0);
                         System.out.println(s2.playerString() + " mister sine point.");
-                        //Mangler (point variabel) = 0
+                        break;
+
                     }
 
                     if (raflebaeger.sum() == 12) {
 
-                        //Dobbelt sekser igen og man vinder spillet
-                        //If statement hvis man har slået 2 seksere i traek så vinder man
-                        if (raflebaeger.sum() == sidsteHaand) {
 
-                            System.out.println("Du vinder med " + s2.score() + " point");
+                        if (Sekser2>0) {
+
+                            System.out.println(s2.playerString() + " vinder med " + s2.score() + " point");
                             Vinder = true;
                             break;
                         }
-                        sidsteHaand = raflebaeger.sum();
+                        Sekser2 = 3;
+                      //  sidsteHaand = raflebaeger.sum();
 
-                        //Boolean til at vaere true for at man har slået to seksere, som så tjekkes
-                        //i if statement
+
                     }
                 } else {
-                    System.out.println("Skifter tur til: " + s1.playerString());
                     tur = true;
                 }
                 s2.updateScore(raflebaeger.sum());
-                System.out.println(s2.playerString() + " har: " + s2.score() + " point");
+                System.out.println(s2.playerString() + " har nu: " + s2.score() + " point");
+
+                if(tur){
+
+                    System.out.println("Skifter tur til: " + s1.playerString());
+
+                }
             }
         }
     }
-    //Find andet navn end stst
-    /*
 
-     */
+
+
     public String Spiller() {
 
         return spiller;

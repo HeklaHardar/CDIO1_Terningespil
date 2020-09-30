@@ -25,12 +25,12 @@ public class Terningespil {
         Raflebaeger raflebaeger = new Raflebaeger();
 
 
-        System.out.print("Indtast navn for spiller 1: ");
+      /*  System.out.print("Indtast navn for spiller 1: ");
         Spiller s1 = new Spiller(scan.nextLine());
         System.out.print("Indtast navn for spiller 2: ");
         Spiller s2 = new Spiller(scan.nextLine());
-        //checker om spilleren er klar
-        while (!klar) {
+        //checker om spilleren er klar*/
+      /*  while (!klar) {
 
             System.out.print("Er i klar til at starte spillet? ja/nej: ");
             String klarString = scan.nextLine().toLowerCase();
@@ -47,9 +47,9 @@ public class Terningespil {
 
             }
         }
-
+*/
         //while game is still going
-
+/*
             if (s1.spillerStarter() == 1) {
                 tur = "player1";
                 }
@@ -100,9 +100,9 @@ public class Terningespil {
                 }
 
 
-
+*/
             }
         }
 
-        }
+
 

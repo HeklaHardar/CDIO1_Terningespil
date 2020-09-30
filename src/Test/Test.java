@@ -86,7 +86,7 @@ public class Test {
         System.out.println("Terningerne slog 10: " + ti +  " gange");
         System.out.println("Terningerne slog 11: " + elve +  " gange");
         System.out.println("Terningerne slog 12: " + tolv +  " gange");
-        System.out.println("Terningerne slog ens: " + ens + " gange");
+        System.out.println("\nTerningerne slog ens: " + ens + " gange");
 
     }
 
