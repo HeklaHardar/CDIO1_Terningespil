@@ -1,3 +1,5 @@
+package Spil;
+
 import java.util.Scanner;
 
 public class PointSystem {
@@ -32,7 +34,7 @@ public class PointSystem {
         while (Vinder == false) {
             while (tur == true) {
                 //String vent = scan.nextLine();
-                System.out.println("Spiller: " + s1.playerString());
+                System.out.println("Spil.Spiller: " + s1.playerString());
                 raflebaeger.roll();
                 System.out.println(raflebaeger.toString());
                 //System.out.println(raflebaeger.sum());
@@ -89,7 +91,7 @@ public class PointSystem {
                 break;
             }
             while (tur == false) {
-                System.out.println("Spiller: " + s2.playerString() + "'s tur.");
+                System.out.println("Spil.Spiller: " + s2.playerString() + "'s tur.");
 
                 System.out.println();
                 raflebaeger.roll();

@@ -1,3 +1,5 @@
+package Spil;
+
 public class Raflebaeger {
 
     Terning terning1 = new Terning(6);

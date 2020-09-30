@@ -1,3 +1,5 @@
+package Spil;
+
 import java.lang.Math;
 
 public class Terning {
