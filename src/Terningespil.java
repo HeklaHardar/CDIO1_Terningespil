@@ -12,12 +12,6 @@ public class Terningespil {
         Scanner scan = new Scanner(System.in);
 
 
-
-
-
-
-
-
         Raflebaeger raflebaeger = new Raflebaeger();
 
 
@@ -26,12 +20,14 @@ public class Terningespil {
         System.out.print("Indtast navn for spiller 2: ");
         Spiller s2 = new Spiller(scan.nextLine());
 
-         //checker om spilleren er klar
+        //checker om spilleren er klar
         while (!klar) {
 
             System.out.print("Er i klar til at starte spillet? ja/nej: ");
+
             String klarString = scan.nextLine();
             String klarStringLower = klarString.toLowerCase();
+
             if (klarString.equals("ja")) {
                 klar = true;
                 break;
@@ -48,90 +44,88 @@ public class Terningespil {
         System.out.println("Spillet starter");
 
 
+        if (s1.spillerStarter() == 1) {
+            tur = "player1";
+        } else {
 
-            if (s1.spillerStarter() == 1) {
-                tur = "player1";
-                }
-                else{
+            tur = "player2";
+        }
 
-                    tur = "player2";
-                }
+        boolean vinder = false;
+        boolean Ekstratur;
+        int score1 = 0;
+        int score2 = 0;
+        PointSystem pointsystem = new PointSystem();
 
-                boolean vinder = false;
-                boolean Ekstratur;
-                int score1 = 0;
-                int score2 = 0;
-                PointSystem pointsystem = new PointSystem();
-
-        while(vinder == false){
+        while (vinder == false) {
             int kast1;
             int kast2;
             int sumafkast;
 
-                while (tur.equals("player1")) {
-                    raflebaeger.roll();
-                    kast1  = raflebaeger.terning1.getVaerdi();
-                    kast2 = raflebaeger.terning2.getVaerdi();
-                    sumafkast = raflebaeger.sum();
-                    System.out.println("");
-                    System.out.println("Det er " + s1.playerString()+"'s tur. Tryk enter for at tage dit kast");
-                    System.out.println("slagene er: "+ kast1+"," +kast2);
-                    System.out.println("summen af raflebægerne er: "+sumafkast);
-                    pointsystem.play(kast1,kast2,sumafkast, score1);
-                    vinder = pointsystem.CheckVinder();
-                    score1 = pointsystem.GetScore();
-                    Ekstratur = pointsystem.CheckExtraTurn();
-                    System.out.println("");
-                    System.out.println(s1.playerString()+" har " +score1+" Points");
-                    if (vinder){
-                        System.out.println(s2.playerString()+" Har Vundet!!! ");
-                        break;
+            while (tur.equals("player1")) {
+                raflebaeger.roll();
+                kast1 = raflebaeger.terning1.getVaerdi();
+                kast2 = raflebaeger.terning2.getVaerdi();
+                sumafkast = raflebaeger.sum();
 
-                    }
-                    if (Ekstratur) {
-                        System.out.println(s1.playerString()+" har fået en ekstra tur");
-                        tur = "player1";
-                    }
-                    else{
-                        tur = "player2";
-                    }
+                System.out.println("");
+                System.out.println("Det er " + s1.playerString() + "'s tur. Tryk enter for at tage dit kast");
+                System.out.println("slagene er: " + kast1 + "," + kast2);
+                System.out.println("summen af raflebægerne er: " + sumafkast);
 
+                pointsystem.play(kast1, kast2, sumafkast, score1);
+                vinder = pointsystem.CheckVinder();
+                score1 = pointsystem.GetScore();
+                Ekstratur = pointsystem.CheckExtraTurn();
 
+                System.out.println("");
+                System.out.println(s1.playerString() + " har " + score1 + " Points");
 
-                while (tur.equals("player2")) {
-                    raflebaeger.roll();
-                    kast1  = raflebaeger.terning1.getVaerdi();
-                    kast2 = raflebaeger.terning2.getVaerdi();
-                    sumafkast = raflebaeger.sum();
-                    System.out.println("");
-                    System.out.println("Det er " + s2.playerString()+"'s tur. Tryk enter for at tage dit kast");
-                    System.out.println("slagene er: "+ kast1+"," +kast2);
-                    System.out.println("summen af raflebægerne er: "+sumafkast);
-                    pointsystem.play(kast1,kast2,sumafkast, score2);
-                    vinder = pointsystem.CheckVinder();
-                    score2 = pointsystem.GetScore();
-                    Ekstratur = pointsystem.CheckExtraTurn();
-                    System.out.println("");
-                    System.out.println(s2.playerString()+" har " +score2+" Points");
-                    if (vinder){
-                        System.out.println(s2.playerString()+" Har Vundet!!! ");
-                        break;
-
-                    }
-                    if (Ekstratur) {
-                        System.out.println(s2.playerString()+" har fået en ekstra tur");
-                        tur = "player2";
-                    }
-                    else {
-                        tur = "player1";
-                    }
+                if (vinder) {
+                    System.out.println(s2.playerString() + " Har Vundet!!! ");
+                    break;
 
                 }
+                if (Ekstratur) {
+                    System.out.println(s1.playerString() + " har fået en ekstra tur");
+                    tur = "player1";
+                } else {
+                    tur = "player2";
+                }
+            }
+            while (tur.equals("player2")) {
+                raflebaeger.roll();
+                kast1 = raflebaeger.terning1.getVaerdi();
+                kast2 = raflebaeger.terning2.getVaerdi();
+                sumafkast = raflebaeger.sum();
 
+                System.out.println("");
+                System.out.println("Det er " + s2.playerString() + "'s tur. Tryk enter for at tage dit kast");
+                System.out.println("slagene er: " + kast1 + "," + kast2);
+                System.out.println("summen af raflebægerne er: " + sumafkast);
 
+                pointsystem.play(kast1, kast2, sumafkast, score2);
+                vinder = pointsystem.CheckVinder();
+                score2 = pointsystem.GetScore();
+                Ekstratur = pointsystem.CheckExtraTurn();
+
+                System.out.println("");
+                System.out.println(s2.playerString() + " har " + score2 + " Points");
+
+                if (vinder) {
+                    System.out.println(s2.playerString() + " Har Vundet!!! ");
+                    break;
+
+                }
+                if (Ekstratur) {
+                    System.out.println(s2.playerString() + " har fået en ekstra tur");
+                    tur = "player2";
+                } else {
+                    tur = "player1";
+                }
 
             }
         }
     }
-        }
+}
 
