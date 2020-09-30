@@ -5,16 +5,42 @@ public class terningespil {
 
         Scanner input = new Scanner(System.in);
 
-        int a = input.nextInt();
+        int a;
         int ScoreA = 0;
         int ScoreB = 0;
         int b;
-        ScoreA = ScoreA + a;
-        int n = 1;
-        while (n <= ScoreA){
-            System.out.print("█");
-            n++;
-        }
+        int n;
+        do {
+            a = input.nextInt();
+            ScoreA = ScoreA + a;
+            n = 1;
+            System.out.println("Spiller1");
+            while (n <= ScoreA) {
+                System.out.print("█");
+                n++;
+            }
+
+            System.out.print(" " + ScoreA);
+            System.out.println(" ");
+
+            b = input.nextInt();
+            ScoreB = ScoreB + b;
+            n = 1;
+            System.out.println("Spiller 2");
+            while (n <= ScoreB) {
+                System.out.print("█");
+                n++;
+            }
+            System.out.print(" " + ScoreB);
+            System.out.println(" ");
+
+            System.out.println("-------------------------");
+        } while (true);
+
+
+
+
+
 
         /*do {
             while (n <= a) {
