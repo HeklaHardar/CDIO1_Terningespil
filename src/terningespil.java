@@ -1,3 +1,5 @@
+
+
 import java.util.Scanner;
 
 public class terningespil {
@@ -9,7 +11,11 @@ public class terningespil {
         int ScoreA = 0;
         int ScoreB = 0;
         int b;
-        int n;
+        int n = 1;
+
+        while (n <= 1000){
+            (int) (Math.random(0 + 6)* 6);
+        }
         do {
             a = input.nextInt();
             ScoreA = ScoreA + a;
