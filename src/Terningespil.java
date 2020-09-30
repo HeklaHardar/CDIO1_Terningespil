@@ -13,9 +13,11 @@ public class Terningespil {
 
 
         Raflebæger raflebæger = new Raflebæger();
-        System.out.println(raflebæger.sum());
+        /*System.out.println(raflebæger.sum());
         System.out.println(raflebæger.roll().toString());
         System.out.println(raflebæger.sum());
+
+         */
 
 
         System.out.print("Indtast navn for spiller 1: ");
@@ -31,7 +33,7 @@ public class Terningespil {
             System.out.println(s2.startString());
             s1.Starter(false);
         }
-/*
+
         while (true) {
 
 
@@ -60,9 +62,9 @@ public class Terningespil {
 
             System.out.print("Er i klar til at starte spillet? ja/nej: ");
             String klarString = scan.nextLine();
+            klarString.toLowerCase();
 
             if (klarString.equals("ja")) {
-
                 klar = true;
                 break;
 
@@ -122,6 +124,6 @@ public class Terningespil {
 
         }
 
-*/
+
         }
     }
