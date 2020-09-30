@@ -6,17 +6,39 @@ public class terningespil {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-
+        int terning1;
+        int terning2;
+        int sum;
         int a;
         int ScoreA = 0;
         int ScoreB = 0;
         int b;
-        int n = 1;
+        int n = 0;
+        int combo = 0;
 
-        while (n <= 1000){
-            (int) (Math.random(0 + 6)* 6);
+        while (n <= 10000) {
+            terning1 = (int) (Math.random() * (7 - 1) + 1);
+            terning2 = (int) (Math.random() * (7 - 1) + 1);
+            sum = terning1 + terning2;
+            n++;
+            System.out.println("n = " + n + "        " + terning1+ "        " + terning2);
+            System.out.println("Sum er: " + sum);
+            System.out.println("-----------------------------");
+
+
+           // if (sum == 2 || sum == 4 || sum == 6 || sum == 8 || sum == 10 || sum == 12){
+            if (terning1 == terning2){
+                combo++;
+                System.out.println("2x comboer: " + combo);
+                System.out.println(" ");
+            }
+
         }
-        do {
+        System.out.println("2x comboer: " + combo);
+
+
+
+       /* do {
             a = input.nextInt();
             ScoreA = ScoreA + a;
             n = 1;
@@ -42,36 +64,7 @@ public class terningespil {
 
             System.out.println("-------------------------");
         } while (true);
-
-
-
-
-
-
-        /*do {
-            while (n <= a) {
-
-                System.out.print("█");
-                ScoreA = ScoreA + a;
-                n = n + 1;
-
-            }
-            System.out.println(" ");
-            b = input.nextInt();
-            n = 1;
-
-            while (n <= b) {
-
-                System.out.print("█");
-
-                n = n + 1;
-            }
-            ScoreB = ScoreB + b;
-
-
-            System.out.print(" " + ScoreB);
-
-        }*/
+*/
 
     }
 }
