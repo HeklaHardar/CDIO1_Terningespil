@@ -89,5 +89,4 @@ public class Test {
         System.out.println("\nTerningerne slog ens: " + ens + " gange");
 
     }
-
 }

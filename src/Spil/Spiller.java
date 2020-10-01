@@ -2,9 +2,7 @@ package Spil;
 
 public class Spiller {
 
-
     //Sætter variabler
-
     private int min = 1;
     private int max = 3;
     private String Player;
@@ -17,7 +15,6 @@ public class Spiller {
         Player = s;
         point = 0;
     }
-
 
     //Vælger tilfældigt hvem der starter spillet
     public int spillerStarter() {
@@ -32,10 +29,6 @@ public class Spiller {
         return Player;
     }
 
-    /*public String pointString(String point){
-        return Player + "har" + point + "points";
-    }
-*/
     //opdaterer spillerens score
     public void opdaterScore(int terning) {
 
@@ -43,7 +36,6 @@ public class Spiller {
         if (terning == 0) {
             point = 0;
         }
-
     }
 
     //returner spillerens nye score
@@ -51,7 +43,5 @@ public class Spiller {
 
         return point;
 
-
     }
-
 }

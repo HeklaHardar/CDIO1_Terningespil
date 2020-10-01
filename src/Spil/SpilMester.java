@@ -2,7 +2,7 @@ package Spil;
 
 import java.util.Scanner;
 
-public class PointSystem {
+public class SpilMester {
 
     //Definerer variabler
     private String spiller;
