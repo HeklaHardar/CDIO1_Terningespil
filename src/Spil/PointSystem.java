@@ -59,7 +59,7 @@ public class PointSystem {
             tur = false;
         }
 
-        System.out.println("Du kan til enhver til skrive 'exit' for at afslutte spillet");
+        System.out.println("Du kan til enhver tid skrive 'exit' for at afslutte spillet");
 
         //Terninge spillet kører
         while (!Vinder) {
