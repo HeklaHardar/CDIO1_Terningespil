@@ -11,7 +11,7 @@ public class terningespil {
         int sum = 0;
         int n = 0;
         int combo = 0;
-        int iteration = 999;
+        int iteration = 100;
         double c1 = 0;
         double c2 = 0;
         double c3 = 0;
@@ -47,6 +47,7 @@ public class terningespil {
 
 
         }
+        System.out.println("-----------------------------");
         System.out.println("n = " + n + "        " + terning1 + "        " + terning2);
         System.out.println("Sum er: " + sum);
         System.out.println("-----------------------------");
@@ -57,12 +58,12 @@ public class terningespil {
 
 
         n = 1;
-        if (iteration >= 99) {
-            i = 10;
-        }else if (999 >= iteration){
-            i = 100;
-        } else if (iteration <= 99) {
+        if (iteration <= 100) {
             i = 1;
+        } else if (iteration <= 5000) {
+            i = 10;
+        } else {
+            i = 100;
         }
 
 
@@ -71,41 +72,41 @@ public class terningespil {
             n++;
         }
         n = 1;
-        System.out.print(c1/i + " * "+ i );
+        System.out.print(" sum = 2 | " + c1/i + " * "+ i );
         System.out.println(" ");
         while (n <= c2/i) {
             System.out.print("█");
             n++;
         }
         n = 1;
-        System.out.print(c2/i + " * "+ i);
+        System.out.print(" sum = 4 | " + c2/i + " * "+ i);
         System.out.println(" ");
         while (n <= c3/i) {
             System.out.print("█");
             n++;
         }
         n = 1;
-        System.out.print(c3/i + " * "+ i);
+        System.out.print(" sum = 6 | " + c3/i + " * "+ i);
         System.out.println(" ");
         while (n <= c4/i) {
             System.out.print("█");
             n++;
         }
         n = 1;
-        System.out.print(c4/i + " * "+ i);
+        System.out.print(" sum = 8 | " + c4/i + " * "+ i);
         System.out.println(" ");
         while (n <= c5/i) {
             System.out.print("█");
             n++;
         }
         n = 1;
-        System.out.print(c5/i + " * "+ i);
+        System.out.print(" sum = 10 | " + c5/i + " * "+ i);
         System.out.println(" ");
         while (n <= c6/i) {
             System.out.print("█");
             n++;
         }
-        System.out.print(c6/i + " * "+ i);
+        System.out.print(" sum = 12 | " + c6/i + " * "+ i);
 
         }
     }
