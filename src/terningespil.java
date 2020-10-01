@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class terningespil {
     public static void main(String[] args) {
+        double TStart = System.currentTimeMillis();
 
-        Scanner input = new Scanner(System.in);
         int terning1 = 0;
         int terning2 = 0;
         int sum = 0;
@@ -24,18 +24,18 @@ public class terningespil {
         double c10 = 0;
         double c11 = 0;
         double c12 = 0;
-
+// Generates 2 dices and random values between 1 and 6
         while (n <= iteration) {
             terning1 = (int) (Math.random() * (7 - 1) + 1);
             terning2 = (int) (Math.random() * (7 - 1) + 1);
             sum = terning1 + terning2;
             n++;
 
-
+// If the 2 dices have the same value add 1 to a "combo amount" int
             if (terning1 == terning2) {
                 combo++;
             }
-
+// Adds 1 to a specific kind of
             if (sum == 2){
                 c2 = c2 + 1;
             } else if (sum == 3){
@@ -169,7 +169,9 @@ public class terningespil {
         n = 1;
         System.out.print(" sum = 12 | " + c12/i + " * "+ i);
 
+        System.out.println(" ");
 
+        System.out.println(System.currentTimeMillis()-TStart + " ms to execute");
 
         }
 
