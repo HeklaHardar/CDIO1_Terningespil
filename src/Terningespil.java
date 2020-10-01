@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Terningespil {
@@ -28,13 +27,13 @@ public class Terningespil {
             String klarString = scan.nextLine();
             String klarStringLower = klarString.toLowerCase();
 
-            if (klarString.equals("ja")) {
+            if (klarStringLower.equals("ja")) {
                 klar = true;
                 break;
 
-            } else if (klarString.equals("nej")) {
+            } else if (klarStringLower.equals("nej")) {
                 //Noget om genstart hvis du vil spille
-                System.out.println("blahblah");
+                System.out.println("Skriv ja når du er klar");
             } else {
 
                 System.out.println("ukendt input");
@@ -82,7 +81,7 @@ public class Terningespil {
                 System.out.println(s1.playerString() + " har " + score1 + " Points");
 
                 if (vinder) {
-                    System.out.println(s2.playerString() + " Har Vundet!!! ");
+                    System.out.println(s1.playerString() + " Har vundet!!!");
                     break;
 
                 }
@@ -113,7 +112,7 @@ public class Terningespil {
                 System.out.println(s2.playerString() + " har " + score2 + " Points");
 
                 if (vinder) {
-                    System.out.println(s2.playerString() + " Har Vundet!!! ");
+                    System.out.println(s2.playerString() + " Har vundet!!!");
                     break;
 
                 }
@@ -128,4 +127,3 @@ public class Terningespil {
         }
     }
 }
-
