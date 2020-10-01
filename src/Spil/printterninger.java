@@ -1,6 +1,7 @@
 package Spil;
 
 public class printterninger {
+
     static String findTerning(int vaerdi) {
 
         String billede;

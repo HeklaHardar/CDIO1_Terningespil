@@ -3,7 +3,6 @@ package Spil;
 public class Spiller {
 
     //Sætter variabler
-
     private int min = 1;
     private int max = 3;
     private String Player;
