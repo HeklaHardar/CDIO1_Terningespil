@@ -8,6 +8,9 @@ public class Terningespil {
 
 
 
+
+
+
         PointSystem pointsystem = new PointSystem();
         pointsystem.play();
 
