@@ -55,145 +55,164 @@ public class PointSystem {
         System.out.println("Skriv 'exit' til enhver tid, for at slutte spillet.");
 
         while (!Vinder) {
-                while (tur) {
+            while (tur&&!Vinder) {
 
-                    System.out.println("\nDet er " + s1.playerString() + "'s tur.");
-                    if (s1.score() > 0) {
-                        System.out.println(s1.playerString() + " har: " + s1.score() + " point");
-                    }
-                    System.out.println("Tryk enter for at tage dit kast");
-                    String vent = scan.nextLine();
-                    if (vent.toLowerCase().equals("exit")) {
+                System.out.println("\nDet er " + s1.playerString() + "'s tur.");
+                if (s1.score() > 0) {
+                    System.out.println(s1.playerString() + " har: " + s1.score() + " point");
+                }
+                System.out.println("Tryk enter for at tage dit kast");
+                String vent = scan.nextLine();
+                if (vent.toLowerCase().equals("exit")) {
 
-                        System.exit(0);
+                    System.exit(0);
 
-                    }
-                    raflebaeger.roll();
-                    System.out.println("Slagene er: " + raflebaeger.terning1.getVaerdi() + " og " + raflebaeger.terning2.getVaerdi());
-                    System.out.println("Summen af raflebægeret er: " + raflebaeger.sum());
+                }
+                raflebaeger.roll();
+                System.out.println("Slagene er: " + raflebaeger.terning1.getVaerdi() + " og " + raflebaeger.terning2.getVaerdi());
+                System.out.println("Summen af raflebægeret er: " + raflebaeger.sum());
 
-                    if (Sekser1 > 0) {
-                        Sekser1 -= 1;
-                    }
+                if (Sekser1 > 0) {
+                    Sekser1 -= 1;
+                }
 
-                    if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi() && raflebaeger.sum() != 2 && s1.score() >= 40) {
+                if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi() && raflebaeger.sum() != 2 && s1.score() >= 40) {
 
-                        System.out.println(s1.playerString() + " vinder med " + s1.score() + " point!");
-                        Vinder = true;
-                        break;
+                    System.out.println(s1.playerString() + " vinder med " + s1.score() + " point!");
+                    Vinder = true;
+                    break;
 
-                    } else if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi()) {
-
-                        s1.updateScore(raflebaeger.sum());
-
-                        if (raflebaeger.sum() == 2) {
-
-                            s1.updateScore(0);
-                            System.out.println(s1.playerString() + " mister sine point.");
-                            break;
-                        }
-
-                        if (raflebaeger.sum() == 12) {
-
-                            if (Sekser1 > 0) {
-
-                                System.out.println(s1.playerString() + " vinder med " + s1.score() + " point");
-                                Vinder = true;
-                                break;
-                            }
-                            Sekser1 = 2;
-                        }
-
-                        System.out.println("Ekstra tur til " + s1.playerString());
-                        break;
-
-                    } else {
-                        tur = false;
-                    }
+                } else if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi()) {
 
                     s1.updateScore(raflebaeger.sum());
-                    System.out.println(s1.playerString() + " har nu: " + s1.score() + " point");
 
-                    if (!tur) {
+                    if (raflebaeger.sum() == 2) {
 
-                        System.out.println("\nSkifter tur til: " + s2.playerString());
-
+                        s1.updateScore(0);
+                        System.out.println(s1.playerString() + " mister sine point.");
+                        break;
                     }
-                }
-                if (Vinder) {
 
+                    if (raflebaeger.sum() == 12) {
+
+                        if (Sekser1 > 0) {
+
+                            System.out.println(s1.playerString() + " vinder med " + s1.score() + " point");
+                            Vinder = true;
+                            break;
+                        }
+                        Sekser1 = 2;
+                    }
+
+                    System.out.println("Ekstra tur til " + s1.playerString());
                     break;
+
+                } else {
+                    tur = false;
                 }
-                while (!tur) {
 
-                    System.out.println("\nDet er " + s2.playerString() + "'s tur.");
+                s1.updateScore(raflebaeger.sum());
+                System.out.println(s1.playerString() + " har nu: " + s1.score() + " point");
 
-                    if (s2.score() > 0) {
+                if (!tur) {
 
-                        System.out.println(s2.playerString() + " har: " + s2.score() + " point");
+                    System.out.println("\nSkifter tur til: " + s2.playerString());
 
-                    }
-                    System.out.println("Tryk enter for at tage dit kast");
-                    String vent = scan.nextLine();
-                    if (vent.toLowerCase().equals("exit")) {
+                }
+            }
 
-                        System.exit(0);
+            while (!tur&&!Vinder) {
 
-                    }
-                    raflebaeger.roll();
-                    System.out.println("Slagene er: " + raflebaeger.terning1.getVaerdi() + " og " + raflebaeger.terning2.getVaerdi());
-                    System.out.println("Summen af raflebægeret er: " + raflebaeger.sum());
+                System.out.println("\nDet er " + s2.playerString() + "'s tur.");
 
-                    if (Sekser2 > 0) {
+                if (s2.score() > 0) {
 
-                        Sekser2 -= 1;
+                    System.out.println(s2.playerString() + " har: " + s2.score() + " point");
 
-                    }
+                }
+                System.out.println("Tryk enter for at tage dit kast");
+                String vent = scan.nextLine();
+                if (vent.toLowerCase().equals("exit")) {
 
-                    if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi() && raflebaeger.sum() != 2 && s2.score() >= 40) {
+                    System.exit(0);
 
-                        System.out.println(s2.playerString() + " vinder med " + s2.score() + " point!");
+                }
+                raflebaeger.roll();
+                System.out.println("Slagene er: " + raflebaeger.terning1.getVaerdi() + " og " + raflebaeger.terning2.getVaerdi());
+                System.out.println("Summen af raflebægeret er: " + raflebaeger.sum());
 
-                        Vinder = true;
+                if (Sekser2 > 0) {
+
+                    Sekser2 -= 1;
+
+                }
+
+                if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi() && raflebaeger.sum() != 2 && s2.score() >= 40) {
+
+                    System.out.println(s2.playerString() + " vinder med " + s2.score() + " point!");
+
+                    Vinder = true;
+                    break;
+
+                } else if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi()) {
+
+                    System.out.println("Ekstra tur til " + s2.playerString());
+
+                    if (raflebaeger.sum() == 2) {
+
+                        s2.updateScore(0);
+                        System.out.println(s2.playerString() + " mister sine point.");
                         break;
 
-                    } else if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi()) {
-
-                        System.out.println("Ekstra tur til " + s2.playerString());
-
-                        if (raflebaeger.sum() == 2) {
-
-                            s2.updateScore(0);
-                            System.out.println(s2.playerString() + " mister sine point.");
-                            break;
-
-                        }
-
-                        if (raflebaeger.sum() == 12) {
-
-                            if (Sekser2 > 0) {
-                                s2.updateScore(raflebaeger.sum());
-                                System.out.println(s2.playerString() + " vinder med " + s2.score() + " point");
-                                Vinder = true;
-                                break;
-                            }
-                            Sekser2 = 2;
-
-                        }
-                    } else {
-                        tur = true;
                     }
-                    s2.updateScore(raflebaeger.sum());
-                    System.out.println(s2.playerString() + " har nu: " + s2.score() + " point");
 
-                    if (tur) {
+                    if (raflebaeger.sum() == 12) {
 
-                        System.out.println("\nSkifter tur til: " + s1.playerString());
+                        if (Sekser2 > 0) {
+                            s2.updateScore(raflebaeger.sum());
+                            System.out.println(s2.playerString() + " vinder med " + s2.score() + " point");
+                            Vinder = true;
+                            break;
+                        }
+                        Sekser2 = 2;
 
+                    }
+                } else {
+                    tur = true;
+                }
+                s2.updateScore(raflebaeger.sum());
+                System.out.println(s2.playerString() + " har nu: " + s2.score() + " point");
+
+                if (tur) {
+
+                    System.out.println("\nSkifter tur til: " + s1.playerString());
+
+                }
+            }
+
+            if(Vinder) {
+
+
+                while(Vinder) {
+                    System.out.println("Vil i genstarte spillet? ja/nej");
+                    String genstart = scan.nextLine();
+                    if (genstart.toLowerCase().equals("ja")) {
+
+                        s1.updateScore(0);
+                        s2.updateScore(0);
+                        Vinder = false;
+                    } else if (genstart.toLowerCase().equals("nej")) {
+                        System.out.println("Tak for spillet");
+                        break;
+                    } else {
+
+                        System.out.println("Ukendt input");
                     }
                 }
             }
+
+
         }
 
     }
-
+}
