@@ -3,6 +3,8 @@ package Spil;
 import java.util.Scanner;
 
 public class PointSystem {
+
+    //Definerer variabler
     private String spiller;
     Scanner scan = new Scanner(System.in);
     Raflebaeger raflebaeger = new Raflebaeger();
@@ -12,10 +14,8 @@ public class PointSystem {
     private int Sekser2;
     private boolean klar = false;
 
-
+    //Starter hele spillet
     public void play() {
-
-       //  System.out.println(printterninger.findTerning(1));
 
         System.out.println(" _____               _                             _ _ _      _   \n" +
                 "|_   _|             (_)                           (_) | |    | |  \n" +
@@ -25,6 +25,8 @@ public class PointSystem {
                 "  \\_/\\___|_|  |_| |_|_|_| |_|\\__, |\\___||___/ .__/|_|_|_|\\___|\\__|\n" +
                 "                              __/ |         | |                   \n" +
                 "                             |___/          |_|                 ");
+
+        //Sætter spiller navne og definerer spiller objekter
         System.out.print("Indtast navn for spiller 1: ");
         Spiller s1 = new Spiller(scan.nextLine());
         spiller = s1.playerString();
@@ -32,15 +34,8 @@ public class PointSystem {
         Spiller s2 = new Spiller(scan.nextLine());
 
 
-        if (s1.spillerStarter() == 1) {
-            System.out.println("\n" + s1.startString());
-        } else {
-            System.out.println("\n" + s2.startString());
-            tur = false;
-        }
-
+        //Sikrer at spillerne er klar
         while (!klar) {
-
             System.out.print("Er i klar til at starte spillet? ja/nej: ");
 
             String klarString = scan.nextLine();
@@ -49,66 +44,77 @@ public class PointSystem {
             if (klarStringLower.equals("ja")) {
                 klar = true;
                 break;
-
             } else if (klarStringLower.equals("nej")) {
-                //Noget om genstart hvis du vil spille
                 System.out.println("Skriv ja når du er klar");
             } else {
-
                 System.out.println("ukendt input");
-
             }
+        }
 
+        //Vælger hvilken spiller der starter og printer spillerens navn
+        if (s1.spillerStarter() == 1) {
+            System.out.println("\n" + s1.startString());
+        } else {
+            System.out.println("\n" + s2.startString());
+            tur = false;
         }
 
         System.out.println("Du kan til enhver til skrive 'exit' for at afslutte spillet");
 
+        //Terninge spillet kører
         while (!Vinder) {
-            while (tur&&!Vinder) {
+            //Kører tur for spiller 1
+            while (tur && !Vinder) {
 
                 System.out.println("\nDet er " + s1.playerString() + "'s tur.");
-                // if (s1.score() > 0) {
-                 //   System.out.println(s1.playerString() + " har: " + s1.score() + " point");
-                //}
                 System.out.println("Tryk enter for at kaste terningerne");
+
+                //Venter for spillerens input for at slå
                 String vent = scan.nextLine();
+
+                //Hvis spilleren skriver exit, slutter spillet
                 if (vent.toLowerCase().equals("exit")) {
-
                     System.exit(0);
-
                 }
+
+                //Ruller raflebægeret og printer værdierne
                 raflebaeger.roll();
                 System.out.println("Slagene er: ");
                 System.out.println(printterninger.findTerning(raflebaeger.terning1.getVaerdi()));
                 System.out.println(printterninger.findTerning(raflebaeger.terning2.getVaerdi()));
-                // System.out.println("Summen af raflebægeret er: " + raflebaeger.sum());
+
 
                 if (Sekser1 > 0) {
                     Sekser1 -= 1;
                 }
 
+                //Tjekker om man vinder spillet
                 if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi() && raflebaeger.sum() != 2 && s1.score() >= 40) {
 
-                    System.out.println("\uD83C\uDFC6"+ s1.playerString() + " vinder med " + s1.score() + " point!\uD83C\uDFC6");
+                    System.out.println("\uD83C\uDFC6" + s1.playerString() + " vinder med " + s1.score() + " point!\uD83C\uDFC6");
                     Vinder = true;
                     break;
 
+                    //Tjekker om man har slået to ens
                 } else if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi()) {
 
-                    s1.updateScore(raflebaeger.sum());
+                    s1.opdaterScore(raflebaeger.sum());
 
+                    //Tjekker om man har slået to ettere
                     if (raflebaeger.sum() == 2) {
 
-                        s1.updateScore(0);
+                        s1.opdaterScore(0);
                         System.out.println(s1.playerString() + " mister sine point.");
                         break;
                     }
 
+                    //Tjekker om man har slået to seksere
                     if (raflebaeger.sum() == 12) {
 
+                        //Tjekker om man slog to seksere i sidste slag
                         if (Sekser1 > 0) {
 
-                            System.out.println("\uD83C\uDFC6"+ s1.playerString() + " vinder med " + s1.score() + " point \uD83C\uDFC6");
+                            System.out.println("\uD83C\uDFC6" + s1.playerString() + " vinder med " + s1.score() + " point \uD83C\uDFC6");
                             Vinder = true;
                             break;
                         }
@@ -121,38 +127,31 @@ public class PointSystem {
                 } else {
                     tur = false;
                 }
-
-                s1.updateScore(raflebaeger.sum());
+                //Opdaterer spillerens score
+                s1.opdaterScore(raflebaeger.sum());
                 System.out.println(s1.playerString() + " har nu: " + s1.score() + " point");
-
-                // if (!tur) {
-
-                 //   System.out.println("\nSkifter tur til: " + s2.playerString());
-                // }
             }
 
-            while (!tur&&!Vinder) {
+            //Kører tur for spiller 2
+            while (!tur && !Vinder) {
 
                 System.out.println("\nDet er " + s2.playerString() + "'s tur.");
 
-                //if (s2.score() > 0) {
-
-                    // System.out.println(s2.playerString() + " har: " + s2.score() + " point");
-
-                //}
                 System.out.println("Tryk enter for at kaste terningerne");
+
+                //Venter for spillerens input for at slå
                 String vent = scan.nextLine();
+
+                //Hvis spilleren skriver exit, slutter spillet
                 if (vent.toLowerCase().equals("exit")) {
-
                     System.exit(0);
-
                 }
 
+                //Ruller raflebægeret og printer værdierne
                 raflebaeger.roll();
                 System.out.println("Slagene er: ");
                 System.out.println(printterninger.findTerning(raflebaeger.terning1.getVaerdi()));
                 System.out.println(printterninger.findTerning(raflebaeger.terning2.getVaerdi()));
-                // System.out.println("Summen af raflebægeret er: " + raflebaeger.sum());
 
                 if (Sekser2 > 0) {
 
@@ -160,6 +159,7 @@ public class PointSystem {
 
                 }
 
+                //Tjekker om man vinder spillet
                 if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi() && raflebaeger.sum() != 2 && s2.score() >= 40) {
 
                     System.out.println("\uD83C\uDFC6" + s2.playerString() + " vinder med " + s2.score() + " point!\uD83C\uDFC6");
@@ -167,23 +167,27 @@ public class PointSystem {
                     Vinder = true;
                     break;
 
+                    //Tjekker om man har slået to ens
                 } else if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi()) {
 
                     System.out.println("Ekstra tur til " + s2.playerString());
 
+                    //Tjekker om man har slået to ettere
                     if (raflebaeger.sum() == 2) {
 
-                        s2.updateScore(0);
+                        s2.opdaterScore(0);
                         System.out.println(s2.playerString() + " mister sine point.");
                         break;
 
                     }
 
+                    //Tjekker om man har slået to seksere
                     if (raflebaeger.sum() == 12) {
 
+                        //Tjekker om man slog to seksere i sidste slag
                         if (Sekser2 > 0) {
-                            s2.updateScore(raflebaeger.sum());
-                            System.out.println("\uD83C\uDFC6"+ s2.playerString() + " vinder med " + s2.score() + " point\uD83C\uDFC6");
+                            s2.opdaterScore(raflebaeger.sum());
+                            System.out.println("\uD83C\uDFC6" + s2.playerString() + " vinder med " + s2.score() + " point\uD83C\uDFC6");
                             Vinder = true;
                             break;
                         }
@@ -193,26 +197,21 @@ public class PointSystem {
                 } else {
                     tur = true;
                 }
-                s2.updateScore(raflebaeger.sum());
+                //Odaterer spillerens score
+                s2.opdaterScore(raflebaeger.sum());
                 System.out.println(s2.playerString() + " har nu: " + s2.score() + " point");
 
-                // if (tur) {
-
-                  //  System.out.println("\nSkifter tur til: " + s1.playerString());
-
-               // }
             }
 
-            if(Vinder) {
-
-
-                while(Vinder) {
+            //Genstarter eller slutter spillet
+            if (Vinder) {
+                while (Vinder) {
                     System.out.println("Vil i genstarte spillet? ja/nej");
                     String genstart = scan.nextLine();
-                    if (genstart.toLowerCase().equals("ja")) {
 
-                        s1.updateScore(0);
-                        s2.updateScore(0);
+                    if (genstart.toLowerCase().equals("ja")) {
+                        s1.opdaterScore(0);
+                        s2.opdaterScore(0);
                         Vinder = false;
                     } else if (genstart.toLowerCase().equals("nej")) {
                         System.out.println("Tak for spillet");
@@ -223,9 +222,6 @@ public class PointSystem {
                     }
                 }
             }
-
-
         }
-
     }
 }

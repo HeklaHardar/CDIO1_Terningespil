@@ -12,39 +12,32 @@ public class Spiller {
     private boolean spS;
     private int point;
 
-
+    //Henter spillerens navn
     public Spiller(String s) {
-
         Player = s;
         point = 0;
-
     }
 
 
-
+    //Vælger tilfældigt hvem der starter spillet
     public int spillerStarter() {
-
         return Spiller;
-
     }
 
     public String startString() {
-
         return Player + " Starter";
-
     }
 
     public String playerString() {
-
         return Player;
-
     }
 
-    public String pointString(String point){
+    /*public String pointString(String point){
         return Player + "har" + point + "points";
     }
-
-    public void updateScore(int terning) {
+*/
+    //opdaterer spillerens score
+    public void opdaterScore(int terning) {
 
         point += terning;
         if (terning == 0) {
@@ -53,6 +46,7 @@ public class Spiller {
 
     }
 
+    //returner spillerens nye score
     public int score() {
 
         return point;
