@@ -6,9 +6,9 @@ public class terningespil {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        int terning1;
-        int terning2;
-        int sum;
+        int terning1 = 0;
+        int terning2 = 0;
+        int sum = 0;
         int n = 0;
         int combo = 0;
         int iteration = 999;
@@ -25,14 +25,10 @@ public class terningespil {
             terning2 = (int) (Math.random() * (7 - 1) + 1);
             sum = terning1 + terning2;
             n++;
-            System.out.println("n = " + n + "        " + terning1 + "        " + terning2);
-            System.out.println("Sum er: " + sum);
-            System.out.println("-----------------------------");
+
 
             if (terning1 == terning2) {
                 combo++;
-                System.out.println("2x comboer: " + combo);
-                System.out.println(" ");
             }
 
             if (sum == 2){
@@ -51,6 +47,10 @@ public class terningespil {
 
 
         }
+        System.out.println("n = " + n + "        " + terning1 + "        " + terning2);
+        System.out.println("Sum er: " + sum);
+        System.out.println("-----------------------------");
+
         int i = 1;
         System.out.println("2x comboer: " + combo);
         System.out.println(" ");
