@@ -15,7 +15,16 @@ public class PointSystem {
 
     public void play() {
 
+       //  System.out.println(printterninger.findTerning(1));
 
+        System.out.println(" _____               _                             _ _ _      _   \n" +
+                "|_   _|             (_)                           (_) | |    | |  \n" +
+                "  | | ___ _ __ _ __  _ _ __   __ _  ___  ___ _ __  _| | | ___| |_ \n" +
+                "  | |/ _ \\ '__| '_ \\| | '_ \\ / _` |/ _ \\/ __| '_ \\| | | |/ _ \\ __|\n" +
+                "  | |  __/ |  | | | | | | | | (_| |  __/\\__ \\ |_) | | | |  __/ |_ \n" +
+                "  \\_/\\___|_|  |_| |_|_|_| |_|\\__, |\\___||___/ .__/|_|_|_|\\___|\\__|\n" +
+                "                              __/ |         | |                   \n" +
+                "                             |___/          |_|                 ");
         System.out.print("Indtast navn for spiller 1: ");
         Spiller s1 = new Spiller(scan.nextLine());
         spiller = s1.playerString();
@@ -52,16 +61,16 @@ public class PointSystem {
 
         }
 
-        System.out.println("Skriv 'exit' til enhver tid, for at slutte spillet.");
+        System.out.println("Du kan til enhver til skrive 'exit' for at afslutte spillet");
 
         while (!Vinder) {
             while (tur&&!Vinder) {
 
                 System.out.println("\nDet er " + s1.playerString() + "'s tur.");
-                if (s1.score() > 0) {
-                    System.out.println(s1.playerString() + " har: " + s1.score() + " point");
-                }
-                System.out.println("Tryk enter for at tage dit kast");
+                // if (s1.score() > 0) {
+                 //   System.out.println(s1.playerString() + " har: " + s1.score() + " point");
+                //}
+                System.out.println("Tryk enter for at kaste terningerne");
                 String vent = scan.nextLine();
                 if (vent.toLowerCase().equals("exit")) {
 
@@ -69,8 +78,10 @@ public class PointSystem {
 
                 }
                 raflebaeger.roll();
-                System.out.println("Slagene er: " + raflebaeger.terning1.getVaerdi() + " og " + raflebaeger.terning2.getVaerdi());
-                System.out.println("Summen af raflebægeret er: " + raflebaeger.sum());
+                System.out.println("Slagene er: ");
+                System.out.println(printterninger.findTerning(raflebaeger.terning1.getVaerdi()));
+                System.out.println(printterninger.findTerning(raflebaeger.terning2.getVaerdi()));
+                // System.out.println("Summen af raflebægeret er: " + raflebaeger.sum());
 
                 if (Sekser1 > 0) {
                     Sekser1 -= 1;
@@ -78,7 +89,7 @@ public class PointSystem {
 
                 if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi() && raflebaeger.sum() != 2 && s1.score() >= 40) {
 
-                    System.out.println(s1.playerString() + " vinder med " + s1.score() + " point!");
+                    System.out.println("\uD83C\uDFC6"+ s1.playerString() + " vinder med " + s1.score() + " point!\uD83C\uDFC6");
                     Vinder = true;
                     break;
 
@@ -97,7 +108,7 @@ public class PointSystem {
 
                         if (Sekser1 > 0) {
 
-                            System.out.println(s1.playerString() + " vinder med " + s1.score() + " point");
+                            System.out.println("\uD83C\uDFC6"+ s1.playerString() + " vinder med " + s1.score() + " point \uD83C\uDFC6");
                             Vinder = true;
                             break;
                         }
@@ -114,32 +125,34 @@ public class PointSystem {
                 s1.updateScore(raflebaeger.sum());
                 System.out.println(s1.playerString() + " har nu: " + s1.score() + " point");
 
-                if (!tur) {
+                // if (!tur) {
 
-                    System.out.println("\nSkifter tur til: " + s2.playerString());
-
-                }
+                 //   System.out.println("\nSkifter tur til: " + s2.playerString());
+                // }
             }
 
             while (!tur&&!Vinder) {
 
                 System.out.println("\nDet er " + s2.playerString() + "'s tur.");
 
-                if (s2.score() > 0) {
+                //if (s2.score() > 0) {
 
-                    System.out.println(s2.playerString() + " har: " + s2.score() + " point");
+                    // System.out.println(s2.playerString() + " har: " + s2.score() + " point");
 
-                }
-                System.out.println("Tryk enter for at tage dit kast");
+                //}
+                System.out.println("Tryk enter for at kaste terningerne");
                 String vent = scan.nextLine();
                 if (vent.toLowerCase().equals("exit")) {
 
                     System.exit(0);
 
                 }
+
                 raflebaeger.roll();
-                System.out.println("Slagene er: " + raflebaeger.terning1.getVaerdi() + " og " + raflebaeger.terning2.getVaerdi());
-                System.out.println("Summen af raflebægeret er: " + raflebaeger.sum());
+                System.out.println("Slagene er: ");
+                System.out.println(printterninger.findTerning(raflebaeger.terning1.getVaerdi()));
+                System.out.println(printterninger.findTerning(raflebaeger.terning2.getVaerdi()));
+                // System.out.println("Summen af raflebægeret er: " + raflebaeger.sum());
 
                 if (Sekser2 > 0) {
 
@@ -149,7 +162,7 @@ public class PointSystem {
 
                 if (raflebaeger.terning1.getVaerdi() == raflebaeger.terning2.getVaerdi() && raflebaeger.sum() != 2 && s2.score() >= 40) {
 
-                    System.out.println(s2.playerString() + " vinder med " + s2.score() + " point!");
+                    System.out.println("\uD83C\uDFC6" + s2.playerString() + " vinder med " + s2.score() + " point!\uD83C\uDFC6");
 
                     Vinder = true;
                     break;
@@ -170,7 +183,7 @@ public class PointSystem {
 
                         if (Sekser2 > 0) {
                             s2.updateScore(raflebaeger.sum());
-                            System.out.println(s2.playerString() + " vinder med " + s2.score() + " point");
+                            System.out.println("\uD83C\uDFC6"+ s2.playerString() + " vinder med " + s2.score() + " point\uD83C\uDFC6");
                             Vinder = true;
                             break;
                         }
@@ -183,11 +196,11 @@ public class PointSystem {
                 s2.updateScore(raflebaeger.sum());
                 System.out.println(s2.playerString() + " har nu: " + s2.score() + " point");
 
-                if (tur) {
+                // if (tur) {
 
-                    System.out.println("\nSkifter tur til: " + s1.playerString());
+                  //  System.out.println("\nSkifter tur til: " + s1.playerString());
 
-                }
+               // }
             }
 
             if(Vinder) {
