@@ -72,7 +72,7 @@ public class PointSystem {
                             Vinder = true;
                             break;
                         }
-                        Sekser1 = 3;
+                        Sekser1 = 2;
                     }
 
                     System.out.println("Ekstra tur til " + s1.playerString());
@@ -141,7 +141,7 @@ public class PointSystem {
                             Vinder = true;
                             break;
                         }
-                        Sekser2 = 3;
+                        Sekser2 = 2;
 
                     }
                 } else {
